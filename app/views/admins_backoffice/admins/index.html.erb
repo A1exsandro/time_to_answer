@@ -2,3 +2,27 @@
 <p>Find me in app/views/admins_backoffice/admins/index.html.erb</p>
 
 <h1>Admins</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @admins.each do |admin| %>
+        <tr>
+            <td><%= admin.id %></td>
+            <td><%= admin.email %></td>
+            <td>
+                <%= link_to edit_admins_backoffice_admin_path(admin)  do %>
+                    <button>E</button>
+                <% end %>
+                <button>D</button>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>    
+</table>
