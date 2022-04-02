@@ -2,6 +2,17 @@
 
 <%= @admin.inspect %>
 
+<% if @admin.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <ul>
+      <% @admin.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
 <%= form_with(model: [:admins_backoffice, @admin]) do |form| %>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
