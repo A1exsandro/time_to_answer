@@ -24,7 +24,9 @@
                 <%= link_to edit_admins_backoffice_admin_path(admin)  do %>
                     <button>Editar</button>
                 <% end %>
-                <button>Deletar</button>
+                <%= link_to admins_backoffice_admin_path(admin), method: :delete, data: { confirm: "Deseja realmente excluir este administrador?"}  do %>
+                    <button>Deletar</button>
+                <% end %>  
             </td>
         </tr>
         <% end %>
