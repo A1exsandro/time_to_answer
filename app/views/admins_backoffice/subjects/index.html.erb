@@ -1,0 +1,51 @@
+<div class="container">
+
+  <h1>Listando Assuntos/Áreas</h1>
+    
+  <%= link_to new_admins_backoffice_subject_path do %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-success" type="button">Criar Novo Assunto</button>
+    </div>               
+  <% end %>
+      
+      
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descrição</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subjects.each do |subject| %>
+      <tr>
+        <th scope="row"><%= subject.id %></th>
+        <td><%= subject.description %></td>
+        <td>
+          <%= link_to edit_admins_backoffice_subject_path(subject)  do %>
+              <button class="btn btn-primary" type="button">Editar</button>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admins_backoffice_subject_path(subject), method: :delete, data: { confirm: "Deseja realmente excluir este assunto?"}  do %>
+              <button class="btn btn-danger" type="button">Deletar</button>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="d-grid gap-2 col-6 mx-auto" >
+      <%= paginate @subjects %>
+  </div>
+
+  <%= link_to admins_backoffice_welcome_index_path do %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <button class="btn btn-primary" type="button">Voltar para admins_backoffice</button>
+    </div>               
+  <% end %>
+
+</div>

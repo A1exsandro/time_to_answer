@@ -17,11 +17,15 @@
 
     <% if notice %>
       <div class="alert alert-success d-flex align-items-center" role="alert">
-          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
           <%= notice %>
         </div>
       </div>
+    <% end %>
+
+    <%= link_to admins_backoffice_subjects_path do %>
+      <button type="submit" class="btn btn-primary">Assuntos/Áreas</button>
     <% end %>
 
     <%= yield %>
