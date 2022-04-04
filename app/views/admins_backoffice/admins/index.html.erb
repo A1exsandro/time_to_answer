@@ -8,7 +8,11 @@
         <tr>
             <th>Id</th>
             <th>Email</th>
-            <th></th>
+            <th>
+                <%= link_to new_admins_backoffice_admin_path do %>
+                    <button>Criar Novo Administrador</button>
+                <% end %>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -18,9 +22,9 @@
             <td><%= admin.email %></td>
             <td>
                 <%= link_to edit_admins_backoffice_admin_path(admin)  do %>
-                    <button>E</button>
+                    <button>Editar</button>
                 <% end %>
-                <button>D</button>
+                <button>Deletar</button>
             </td>
         </tr>
         <% end %>

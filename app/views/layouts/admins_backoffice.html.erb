@@ -12,9 +12,19 @@
 
   <body>
   <h1>LAYOUT ADMINS</h1>
-  
     <%= link_to 'Listas de Administradores', admins_backoffice_admins_index_path %>
-    
+    <h1><%= action_name %></h1>
+
+    <% if notice %>
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
+
     <%= yield %>
+
   </body>
 </html>
