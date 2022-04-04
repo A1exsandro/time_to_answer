@@ -4,7 +4,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :params_admin, only: [:update, :destroy]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.all.page(params[:page]).per(5)
   end
 
   def new 
