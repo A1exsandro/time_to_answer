@@ -1,36 +1,51 @@
-<h1>AdminsBackoffice::Admins#index</h1>
-<p>Find me in app/views/admins_backoffice/admins/index.html.erb</p>
+<div class="container">
 
-<h1>Admins</h1>
-
-<table>
+  <h1>Administradores</h1>
+    
+  <%= link_to new_admins_backoffice_admin_path do %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-success" type="button">Criar Novo Administrador</button>
+    </div>               
+  <% end %>
+      
+      
+  <table class="table">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Email</th>
-            <th>
-                <%= link_to new_admins_backoffice_admin_path do %>
-                    <button>Criar Novo Administrador</button>
-                <% end %>
-            </th>
-        </tr>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
     </thead>
     <tbody>
-        <% @admins.each do |admin| %>
-        <tr>
-            <td><%= admin.id %></td>
-            <td><%= admin.email %></td>
-            <td>
-                <%= link_to edit_admins_backoffice_admin_path(admin)  do %>
-                    <button>Editar</button>
-                <% end %>
-                <%= link_to admins_backoffice_admin_path(admin), method: :delete, data: { confirm: "Deseja realmente excluir este administrador?"}  do %>
-                    <button>Deletar</button>
-                <% end %>  
-            </td>
-        </tr>
-        <% end %>
-    </tbody>    
-</table>
+      <% @admins.each do |admin| %>
+      <tr>
+        <th scope="row"><%= admin.id %></th>
+        <td><%= admin.email %></td>
+        <td>
+          <%= link_to edit_admins_backoffice_admin_path(admin)  do %>
+              <button class="btn btn-primary" type="button">Editar</button>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admins_backoffice_admin_path(admin), method: :delete, data: { confirm: "Deseja realmente excluir este administrador?"}  do %>
+              <button class="btn btn-danger" type="button">Deletar</button>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'Voltar para admins_backoffice', admins_backoffice_welcome_index_path %>
+  <div class="d-grid gap-2 col-6 mx-auto" >
+      <%= paginate @admins %>
+  </div>
+
+  <%= link_to admins_backoffice_welcome_index_path do %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <button class="btn btn-primary" type="button">Voltar para admins_backoffice</button>
+    </div>               
+  <% end %>
+
+</div>
